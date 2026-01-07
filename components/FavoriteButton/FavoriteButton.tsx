@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import css from "./FavoriteButton.module.css";
 
 type Props = {
@@ -22,7 +23,9 @@ export default function FavoriteButton({ initial = false, onToggle }: Props) {
       aria-label="Add to favorites"
       className={`${css.btn} ${active ? css.active : ""}`}
     >
-      <Heart className={css.icon} />
+          <svg className={css.icon} width='26' height='24' aria-hidden='true'>
+              <use href="/sprite.svg#heart"/>
+      </svg>
     </button>
   );
 }

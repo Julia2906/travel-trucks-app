@@ -5,11 +5,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 50%;
-    border: 1px solid #e4e7ec;
-    background: #ffffff;
-
+    background-color: transparent;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -17,18 +13,18 @@
 .icon {
     width: 18px;
     height: 18px;
-    stroke: #101828;
+    stroke: var(--main);
 }
 
 .btn:hover {
-    background: #f9fafb;
+    transform: scale(1.1);
 }
 
 .active {
-    border-color: #e44848;
+    border-color: var(--button-hover);
 }
 
 .active .icon {
-    stroke: #e44848;
-    fill: #e44848;
+    stroke: var(--button-hover);
+    fill: var(--button-hover);
 }

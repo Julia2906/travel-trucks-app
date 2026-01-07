@@ -1,0 +1,27 @@
+.wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #101828;
+}
+
+.value {
+    font-weight: 400;
+        font-size: 16px;
+    
+        /* line-height: 24px; */
+        line-height: 1.5;
+        color: var(--main);
+    }
+
+.count {
+    font-weight: 400;
+        font-size: 16px;
+    
+        /* line-height: 24px; */
+        line-height: 1.5;
+        color: var(--main);
+}
