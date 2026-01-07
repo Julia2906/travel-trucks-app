@@ -1,0 +1,35 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 12px 0 0;
+    list-style: none;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 14px;
+    border-radius: 999px;
+
+    background: #f2f4f7;
+    color: #101828;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+/* якщо додаси іконки */
+.icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+}
+
+.text {
+    white-space: nowrap;
+}
