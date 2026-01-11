@@ -1,3 +1,4 @@
+import css from './page.module.css'
 import { getCamperById } from '@/lib/api';
 import CamperInfoBlock from '@/components/CamperInfoBlock/CamperInfoBlock';
 import CamperTabs from '@/components/CamperTabs/CamperTabs';
@@ -20,9 +21,12 @@ export default async function Details({ params }: Props) {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <CamperInfoBlock/>
-      <CamperTabs id={id} />
-      <BookingForm />
+      <CamperInfoBlock />
+      <section>
+        <div className={` container ${css.wrapper}`}><CamperTabs id={id} />
+      <BookingForm /></div>
+              
+      </section>
     </HydrationBoundary>
   );
 }
