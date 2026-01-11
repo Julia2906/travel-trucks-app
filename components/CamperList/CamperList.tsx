@@ -32,16 +32,12 @@ export default function CamperList() {
 
   useEffect(() => {
     if (!data) return;
-
-    // якщо це новий пошук (page=1) — очищаємо і заливаємо заново
     if (activeFilters.page === 1) {
       resetCampersList();
     }
 
     addMoreCampers(data.items ?? [], data.total);
   }, [data, activeFilters.page, resetCampersList, addMoreCampers]);
-
-  console.log("activeFilters ->", activeFilters);
 
   const hasMore = camperList.length < total;
 
