@@ -1,10 +1,10 @@
 import css from "./CamperCard.module.css";
-import { Camper } from "@/lib/api";
+import { Camper } from "@/types/camper";
 import Image from "next/image";
 import Link from "next/link";
 import FeatureChips from "../FeatureChips/FeatureChips";
-import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import RatingSummary from "../RatingStars/RatingSummary";
+import FavoriteButton from "./FavoriteButton/FavoriteButton";
+import RatingSummary from "../Rating/RatingSummary";
 
 type Props = {
   item: Camper;
@@ -20,7 +20,7 @@ const CamperCard = ({ item }: Props) => {
           <h3 className={css.name}>{item.name}</h3>
           <div className={css.priceAndFav}>
             <p className={css.price}>€{item.price}</p>
-            <FavoriteButton />
+            <FavoriteButton camper={item}/>
           </div>
         </div>
         <div className={css.wrapperSecond}>
@@ -38,7 +38,7 @@ const CamperCard = ({ item }: Props) => {
 
         <p className={css.description}>{item.description}</p>
         <FeatureChips item={item} />
-        <Link href={`/campers/${item.id}`} className={css.button}>
+        <Link href={`/catalog/${item.id}`} className={css.button}>
           Show more
         </Link>
       </div>

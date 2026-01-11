@@ -1,0 +1,79 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+
+    border-radius: 100px;
+    background: #f2f4f7;
+    /* підстав свої змінні */
+}
+
+.chipIcon {
+    flex: 0 0 auto;
+}
+
+.chipText {
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 500;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.detailsTitle {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+}
+
+.detailsRow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.detailsKey {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.detailsValue {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}

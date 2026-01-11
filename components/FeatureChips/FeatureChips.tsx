@@ -1,6 +1,5 @@
 import css from "./FeatureChips.module.css";
-import type { Camper } from "@/lib/api";
-
+import type { Camper } from "@/types/camper";
 // 1) мапа булевих фіч
 const booleanFeatures: Array<{
   key: keyof Camper;

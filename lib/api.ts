@@ -1,47 +1,50 @@
 import axios from "axios";
+import { Camper, CampListResponse, CamperFilters } from "@/types/camper";
 
-export type Camper = {
-    id: string;
-    name: string;
-    price: number;
-    rating: number;
-    location: string;
-    description: string;
-    form: string;
-    length: string;
-    width: string;
-    height: string;
-    tank: string;
-    consumption: string;
-    transmission: string;
-    engine: string;
-    AC: boolean;
-    bathroom: boolean;
-    kitchen: boolean;
-    TV: boolean;
-    radio: boolean;
-    refrigerator: boolean;
-    microwave: boolean;
-    gas: boolean;
-    water: boolean;
-    gallery: { thumb: string; original: string }[];
-    reviews: { reviewer_name: string; reviewer_rating: number; comment: string }[];
+type Props = {
+  page?: number;
+  limit?: number;
+  filters?: Partial<CamperFilters>;
+};
 
-}
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+});
 
-export type CampListResponse = {
-    items: Camper[];
-    total: number;
-}
+export const getCampers = async ({
+  page = 1,
+  limit = 4,
+  filters = {},
+}: Props): Promise<CampListResponse> => {
+  const res = await api.get<CampListResponse>("/campers", {
+    params: {
+      page,
+      limit,
+      ...filters,
+    },
+  });
 
-axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
+  const params: Record<string, string | number | boolean> = { page, limit };
 
-export const getCampers = async () => {
-    const res = await axios.get<CampListResponse>('/campers');
-    return res.data;
-}
+  if (filters.location?.trim()) params.location = filters.location.trim();
+  if (filters.form) params.form = filters.form;
 
-export const getCamperById = async( id: string): Promise<Camper>  => {
-    const res = await axios.get<Camper>(`/campers/${id}`)
-    return res.data;
-}
+  if (filters.transmission) params.transmission = filters.transmission;
+
+  if (filters.AC) params.AC = true;
+  if (filters.kitchen) params.kitchen = true;
+  if (filters.TV) params.TV = true;
+  if (filters.bathroom) params.bathroom = true;
+
+  // ✅ transmission: тільки automatic
+  if (filters.transmission) params.transmission = "automatic";
+
+  console.log("baseURL:", api.defaults.baseURL);
+
+  return res.data;
+};
+
+export const getCamperById = async (id: string) => {
+  const res = await api.get<Camper>(`/campers/${id}`);
+  return res.data;
+};

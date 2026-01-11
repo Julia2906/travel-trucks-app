@@ -8,7 +8,7 @@ export default function Home() {
         <div className="container">
           <h1 className={css.title}>Campers of your dreams</h1>
           <p className={css.text}>You can find everything you want in our catalog</p>
-          <Link href="/campers" className={css.button}>View now</Link>
+          <Link href="/catalog" className={css.button}>View now</Link>
         </div>
       </section>
     </main>
